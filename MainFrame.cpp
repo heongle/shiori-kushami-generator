@@ -4,7 +4,6 @@ MainFrame::MainFrame() : window(mainWidget) ,kushamiTray(window) {
     window.setWindowTitle("Shiori Kushami Generator");
     mainBox.setAlignment(Qt::AlignCenter);
     // Setup icon list to main window
-	// Test Upload
     setupIconList();
     window.setWindowIcon(iconList);
     kushamiTray.setIcon(iconList);
