@@ -9,6 +9,7 @@
 #include "Component/StartButton.hpp"
 #include "CustomWindow.hpp"
 #include "TrayMenu.hpp"
+//Header
 class MainFrame {
   private:
     QVBoxLayout mainBox;
