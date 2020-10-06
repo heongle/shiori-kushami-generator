@@ -50,7 +50,7 @@ _obj/res_pointer.o: res/res_pointer.cpp
 _obj/kushamiResQt.o: res/qt_resources/kushamiResQt.cpp
 	$(CC) $(NOLINK) $(FLAGS) res/qt_resources/kushamiResQt.cpp $(QT5WIDGET) -o _obj/kushamiResQt.o
 
-# Icon RC files
+# Icon RC files test
 _obj/shiori_icon.o: icon/shiori_icon.rc
 	windres -i icon\\shiori_icon.rc -o _obj\\shiori_icon.o
 
