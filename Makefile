@@ -13,7 +13,7 @@ QT5WIDGET_LINKER	= $(shell pkg-config Qt5Widgets --libs)
 SFML_AUDIO	= $(shell pkg-config sfml-audio --cflags)
 SFML_AUDIO_LINKER	= $(shell pkg-config sfml-audio --libs)
 
-# Main CPP files
+# Main CPP files test
 all: $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(OUT) $(QT5WIDGET) $(QT5WIDGET_LINKER) $(SFML_AUDIO) $(SFML_AUDIO_LINKER)
 
