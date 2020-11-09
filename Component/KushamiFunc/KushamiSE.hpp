@@ -5,11 +5,12 @@
 
 class KushamiSE {
   private:
-    sf::SoundBuffer buffer[4];
+    sf::SoundBuffer *buffer;
     sf::Sound kushamiPlayer;
     RandGen randKushami;
 
   public:
     KushamiSE();
+    ~KushamiSE();
     void playSE();
 };

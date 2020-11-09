@@ -3,7 +3,7 @@
 RandGen::RandGen() : mt(rd()) {}
 
 void RandGen::setMaxRange(int min, int max) {
-    if (max != 0){
+    if (max > 0){
         gotRand = true;
         dist = std::uniform_int_distribution<int>(min, max);
     } else {

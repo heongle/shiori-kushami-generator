@@ -47,6 +47,10 @@ MainWidget::MainWidget() : startBtn(kushamiTimer, fixTimeInput, randomTimeInput)
     topWidget.setLayout(&mainBox);
 }
 
+MainWidget::~MainWidget() {
+    stopAll();
+}
+
 QWidget &MainWidget::getWidget() {
     return topWidget;
 }

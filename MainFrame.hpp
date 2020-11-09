@@ -6,19 +6,18 @@
 #include <vector>
 
 #include "Component/MainWidget.hpp"
-#include "Component/StartButton.hpp"
-#include "CustomWindow.hpp"
 #include "TrayMenu.hpp"
 //Header
 class MainFrame {
   private:
+    QWidget window;
+    MainWidget mainWidget;
+
     QVBoxLayout mainBox;
     QPixmap kushamiPix;
     QLabel kushamiImg;
     QIcon iconList;
 
-    MainWidget mainWidget;
-    CustomWindow window;
     TrayMenu kushamiTray;
 
   public:
@@ -26,7 +25,5 @@ class MainFrame {
     int keepAlive();
 
   private:
-    //void setMargin(Gtk::Box &box, int pixel);
-    //void setupCSS();
     void setupIconList();
 };

@@ -11,24 +11,22 @@
 
 class MainWidget {
   private:
-    //Gtk::Box mainBox, settingBox, verticalBox, fixTimeBox, randomTimeBox;
-    //Gtk::Label name, plusMinus, fixTimeLabel, randomTimeLabel;
-    //NumEntry fixTimeInput;
-    //NumEntry randomTimeInput;
     Timer kushamiTimer;
-    StartButton startBtn;
-
-    ////
     QWidget topWidget, settingWidget;
     QVBoxLayout mainBox, settingBox, verticalBox;
     QHBoxLayout fixTimeBox, randomTimeBox;
     QLabel name, plusMinus, fixTimeLabel, randomTimeLabel;
     QLineEdit fixTimeInput, randomTimeInput;
 
+    StartButton startBtn;
+
   public:
     MainWidget();
-    void stopAll();
+    ~MainWidget();
     QWidget &getWidget();
+
+  private:
+    void stopAll();
 };
 
 #endif

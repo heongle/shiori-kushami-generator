@@ -1,6 +1,6 @@
-SOURCE_CPP	= main.cpp CustomWindow.cpp MainFrame.cpp TrayMenu.cpp Component/MainWidget.cpp Component/StartButton.cpp \
+SOURCE_CPP	= main.cpp MainFrame.cpp TrayMenu.cpp Component/MainWidget.cpp Component/StartButton.cpp \
 			  Component/KushamiFunc/KushamiSE.cpp Component/KushamiFunc/Timer.cpp Component/KushamiFunc/RandGen.cpp res/res_pointer.cpp res/se/kushami1.cpp \
-			  res/se/kushami2.cpp res/se/kushami3.cpp res/se/kushami4.cpp res/qt_resources/kushamiResQt.cpp
+			  res/se/kushami2.cpp res/se/kushami3.cpp res/se/kushami4.cpp res/se/kushami5.cpp res/se/kushami6.cpp res/se/kushami7.cpp res/se/kushami8.cpp res/qt_resources/kushamiResQt.cpp
 SOURCE_RC	= icon/shiori_icon.rc
 OBJS	= $(addprefix _obj/, $(notdir $(SOURCE_CPP:.cpp=.o)) $(notdir $(SOURCE_RC:.rc=.o)))
 OUT	= ../bin/Shiori_Kushami.exe
@@ -22,9 +22,6 @@ _obj/main.o: main.cpp
 
 _obj/TrayMenu.o: TrayMenu.cpp
 	$(CC) $(NOLINK) $(FLAGS) TrayMenu.cpp $(QT5WIDGET) -o _obj/TrayMenu.o
-
-_obj/CustomWindow.o: CustomWindow.cpp
-	$(CC) $(NOLINK) $(FLAGS) CustomWindow.cpp $(QT5WIDGET) -o _obj/CustomWindow.o
 
 _obj/MainFrame.o: MainFrame.cpp
 	$(CC) $(NOLINK) $(FLAGS) MainFrame.cpp $(QT5WIDGET) $(SFML_AUDIO) -o _obj/MainFrame.o
@@ -66,6 +63,18 @@ _obj/kushami3.o: res/se/kushami3.cpp
 
 _obj/kushami4.o: res/se/kushami4.cpp
 	$(CC) $(NOLINK) $(FLAGS) res/se/kushami4.cpp -o _obj/kushami4.o
+
+_obj/kushami5.o: res/se/kushami5.cpp
+	$(CC) $(NOLINK) $(FLAGS) res/se/kushami5.cpp -o _obj/kushami5.o
+
+_obj/kushami6.o: res/se/kushami6.cpp
+	$(CC) $(NOLINK) $(FLAGS) res/se/kushami6.cpp -o _obj/kushami6.o
+
+_obj/kushami7.o: res/se/kushami7.cpp
+	$(CC) $(NOLINK) $(FLAGS) res/se/kushami7.cpp -o _obj/kushami7.o
+
+_obj/kushami8.o: res/se/kushami8.cpp
+	$(CC) $(NOLINK) $(FLAGS) res/se/kushami8.cpp -o _obj/kushami8.o
 
 # Clean
 clean:
