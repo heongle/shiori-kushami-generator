@@ -8,6 +8,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QIntValidator>
 
 class MainWidget {
   private:

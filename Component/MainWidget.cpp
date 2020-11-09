@@ -11,6 +11,7 @@ MainWidget::MainWidget() : startBtn(kushamiTimer, fixTimeInput, randomTimeInput)
     fixTimeLabel.setText("分間（固定）");
     fixTimeLabel.setStyleSheet("font-size: 14px;");
     fixTimeInput.setMaxLength(3);
+    fixTimeInput.setValidator(new QIntValidator( 0, 999, &topWidget));
     fixTimeInput.setAlignment(Qt::AlignRight);
     fixTimeInput.setFixedSize(fixTimeInput.minimumSizeHint().width(), fixTimeLabel.sizeHint().height());
 
@@ -19,6 +20,7 @@ MainWidget::MainWidget() : startBtn(kushamiTimer, fixTimeInput, randomTimeInput)
     randomTimeInput.setMaxLength(3);
     randomTimeInput.setAlignment(Qt::AlignRight);
     randomTimeInput.setFixedSize(randomTimeInput.minimumSizeHint().width(), fixTimeLabel.sizeHint().height());
+    randomTimeInput.setValidator(new QIntValidator( 0, 999, &topWidget));
 
     plusMinus.setText("+/-");
     plusMinus.setStyleSheet("font-family: arial,helvetica; font-size: 38px; margin: 15px 0px 15px 0px;");
