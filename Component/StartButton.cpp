@@ -4,12 +4,6 @@ StartButton::StartButton(Timer &kushamiTimer, QLineEdit &fixTimeInput, QLineEdit
     startBtn.setText("開始");
     startBtn.setCursor(Qt::PointingHandCursor);
     startBtn.setStyleSheet("padding: 5px 5px;font-size: 18px; margin-top:10px;");
-    /*startBtn.setStyleSheet( 
-        "QPushButton { padding: 10px 20px; font-size: 24px; outline: none; color: #fff; background-color: #4CAF50;"
-        "border: none; border-radius: 15px;margin-top:10px;}"
-        "QPushButton:hover {background-color: #3e8e41;}"
-        "QPushButton:pressed {background-color: #000;}"
-    );*/
     QObject::connect(&startBtn, &QPushButton::clicked,std::bind(&StartButton::btnPressed, this));
 }
 
