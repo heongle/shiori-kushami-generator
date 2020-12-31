@@ -5,12 +5,14 @@
 #include <QSystemTrayIcon>
 #include <vector>
 
+#include "CustomWidget.h"
 #include "Component/MainWidget.hpp"
 #include "TrayMenu.hpp"
+
 //Header
 class MainFrame {
   private:
-    QWidget window;
+    CustomWidget window;
     MainWidget mainWidget;
 
     QVBoxLayout mainBox;
@@ -22,7 +24,6 @@ class MainFrame {
 
   public:
     MainFrame();
-    int keepAlive();
 
   private:
     void setupIconList();

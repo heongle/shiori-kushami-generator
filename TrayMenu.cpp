@@ -12,11 +12,10 @@ void TrayMenu::setIcon(QIcon &icon) {
 }
 
 void TrayMenu::showWindow(QSystemTrayIcon::ActivationReason reason) {
-    std::cout << "TRAY ICON CLICKED ORH\n";
     if (reason == QSystemTrayIcon::Trigger) {
-        std::cout << "TRIGGERED ORH\n";
         if (!refFrame.isVisible()) {
             refFrame.setVisible(true);
+            refFrame.showNormal();
         }
     }
 }
