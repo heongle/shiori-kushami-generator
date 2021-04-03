@@ -4,34 +4,12 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_C_FLAGS_RELEASE "-O2 -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
-if(CMAKE_BUILD_TYPE MATCHES Release)
-    if (WIN32)
-        add_link_options(-mwindows)
-    endif (WIN32)
-
-    if (UNIX)
-        add_link_options(-no-pie)
-    endif (UNIX)
-endif(CMAKE_BUILD_TYPE MATCHES Release)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(QT5 REQUIRED Qt5Widgets)
 pkg_check_modules(SFML_AUDIO REQUIRED sfml-audio)
 
-include_directories(${QT5_INCLUDE_DIRS} ${SFML_AUDIO_INCLUDE_DIRS})
-link_directories(${QT5_LIBRARY_DIRS} ${SFML_AUDIO_INCLUDE_DIRS})
-add_definitions(${QT5_CFLAGS_OTHER} ${SFML_AUDIO_CFLAGS_OTHER})
-
-add_executable(Shiori_Kushami_Generator
-    main.cpp
-    CustomWidget.cpp
-    MainFrame.cpp
-    TrayMenu.cpp
-    Component/MainWidget.cpp
-    Component/StartButton.cpp
-    Component/KushamiFunc/KushamiSE.cpp
-    Component/KushamiFunc/Timer.cpp
-    Component/KushamiFunc/RandGen.cpp
+add_library(Res OBJECT
     res/res_pointer.cpp
     res/se/kushami1.cpp
     res/se/kushami2.cpp
@@ -44,9 +22,51 @@ add_executable(Shiori_Kushami_Generator
     res/se/kushami9.cpp
     res/qt_resources/kushamiResQt.cpp
     icon/shiori_icon.rc
-    )
+)
 
-target_link_libraries(Shiori_Kushami_Generator ${QT5_LIBRARIES} ${SFML_AUDIO_LIBRARIES})
+add_library(MainFrame OBJECT
+    CustomWidget.cpp
+    MainFrame.cpp
+    TrayMenu.cpp
+)
+
+add_library(MainWidget OBJECT
+    Component/MainWidget.cpp
+    Component/StartButton.cpp
+)
+
+add_library(KushamiFunc OBJECT
+    Component/KushamiFunc/KushamiSE.cpp
+    Component/KushamiFunc/Timer.cpp
+    Component/KushamiFunc/RandGen.cpp
+)
+
+add_executable(Shiori_Kushami_Generator
+    main.cpp
+    $<TARGET_OBJECTS:Res>
+    $<TARGET_OBJECTS:MainFrame>
+    $<TARGET_OBJECTS:MainWidget>
+    $<TARGET_OBJECTS:KushamiFunc>
+)
+
+if(CMAKE_BUILD_TYPE MATCHES Release)
+    if (WIN32)
+        target_link_options(Shiori_Kushami_Generator PRIVATE -mwindows)
+    endif (WIN32)
+
+    if (UNIX)
+        target_link_options(Shiori_Kushami_Generator PRIVATE -no-pie)
+    endif (UNIX)
+endif(CMAKE_BUILD_TYPE MATCHES Release)
+
+target_link_libraries(Shiori_Kushami_Generator PRIVATE ${QT5_LIBRARIES} ${SFML_AUDIO_LIBRARIES})
+target_include_directories(Shiori_Kushami_Generator PRIVATE ${QT5_INCLUDE_DIRS})
+target_link_directories(Shiori_Kushami_Generator PRIVATE ${QT5_LIBRARY_DIRS} ${SFML_LIBRARY_DIRS})
+target_compile_definitions(Shiori_Kushami_Generator PRIVATE ${QT5_CFLAGS_OTHER} ${SFML_AUDIO_CFLAGS_OTHER})
+
+target_include_directories(MainFrame PRIVATE ${QT5_INCLUDE_DIRS})
+target_include_directories(MainWidget PRIVATE ${QT5_INCLUDE_DIRS})
+target_include_directories(KushamiFunc PRIVATE ${SFML_AUDIO_INCLUDE_DIRS})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

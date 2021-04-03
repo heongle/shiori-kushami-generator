@@ -1,18 +1,35 @@
 #include "Timer.hpp"
 #include <iostream>
+
+/**
+ * Timer constructor
+ */
 Timer::Timer() : fix(0){}
 
+/**
+ * Start timer with specific fix time and random time
+ * @param fix
+ * @param rand
+ */
 void Timer::startTimer(int fix, int rand) {
     this->fix = fix;
     randNumb.setMaxRange(0, rand);
+    // Start timer in new thread
     kushamiThread = std::thread(&Timer::startLoop, this);
 }
 
+/**
+ * Retrieve the start status of timer
+ * @return bool
+ */
 bool Timer::isStarted() {
     std::lock_guard<std::mutex> lock(m_Mutex);
     return started;
 }
 
+/**
+ * Stop timer
+ */
 void Timer::stopTimer() {
     {
         std::lock_guard<std::mutex> lock(m_Mutex);
@@ -23,6 +40,9 @@ void Timer::stopTimer() {
     std::cout << "Thread Joined\n";
 }
 
+/**
+ * Loop function for timer to plat kushami every loop with new generated time
+ */
 void Timer::startLoop() {
     std::cout << "Thread Started\n";
     {

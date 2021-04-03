@@ -1,5 +1,8 @@
 #include "MainFrame.hpp"
 
+/**
+ * Kushami ap main frame constructor
+ */
 MainFrame::MainFrame() : kushamiTray(window) {
     window.setWindowTitle("Shiori Kushami Generator");
     mainBox.setAlignment(Qt::AlignCenter);
@@ -22,8 +25,10 @@ MainFrame::MainFrame() : kushamiTray(window) {
     window.show();
 }
 
+/**
+ * Setup icons by reading resource from qt resource
+ */
 void MainFrame::setupIconList() {
-    // Load resources from glib compiled resource and puch into vector
     iconList.addFile(":/img/icon/shiori_icon_16.png");
     iconList.addFile(":/img/icon/shiori_icon_32.png");
     iconList.addFile(":/img/icon/shiori_icon_64.png");

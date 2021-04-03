@@ -1,5 +1,8 @@
 #include "MainWidget.hpp"
 
+/**
+ * MainWidget constructor. Initialize StartButton during construction
+ */
 MainWidget::MainWidget() : startBtn(kushamiTimer, fixTimeInput, randomTimeInput) {
     verticalBox.setMargin(0);
     settingBox.setMargin(0);
@@ -49,14 +52,24 @@ MainWidget::MainWidget() : startBtn(kushamiTimer, fixTimeInput, randomTimeInput)
     topWidget.setLayout(&mainBox);
 }
 
+/**
+ * Destructor. Make sure the timer thread stop properly before app closed
+ */
 MainWidget::~MainWidget() {
     stopAll();
 }
 
+/**
+ * Return a reference to the generated widget ui
+ * @return MainWidget&
+ */
 QWidget &MainWidget::getWidget() {
     return topWidget;
 }
 
+/**
+ * Stop all running background threads
+ */
 void MainWidget::stopAll() {
     if (kushamiTimer.isStarted()) {
         kushamiTimer.stopTimer();
