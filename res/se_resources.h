@@ -24,3 +24,9 @@ extern unsigned int kushami8_wav_len;
 
 extern unsigned char kushami9_wav[];
 extern unsigned int kushami9_wav_len;
+
+extern unsigned char kushami10_wav[];
+extern unsigned int kushami10_wav_len;
+
+extern unsigned char kushami11_wav[];
+extern unsigned int kushami11_wav_len;
