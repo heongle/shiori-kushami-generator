@@ -20,6 +20,8 @@ add_library(Res OBJECT
     res/se/kushami7.cpp
     res/se/kushami8.cpp
     res/se/kushami9.cpp
+    res/se/kushami10.cpp
+    res/se/kushami11.cpp
     res/qt_resources/kushamiResQt.cpp
     icon/shiori_icon.rc
 )
@@ -71,5 +73,3 @@ target_include_directories(KushamiFunc PRIVATE ${SFML_AUDIO_INCLUDE_DIRS})
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
-
-
