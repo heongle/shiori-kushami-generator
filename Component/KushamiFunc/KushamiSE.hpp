@@ -1,7 +1,7 @@
 #ifndef KUSHAMISE_H
 #define KUSHAMISE_H
 
-#include <sfml/Audio.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <memory>
 #include "../../res/se_pointer.h"

@@ -2,6 +2,7 @@
 #define STARTBUTTON_H
 
 #include "KushamiFunc/Timer.hpp"
+#include <functional>
 #include <QPushButton>
 #include <QLineEdit>
 class StartButton {

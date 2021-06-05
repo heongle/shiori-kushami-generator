@@ -57,7 +57,11 @@ if(CMAKE_BUILD_TYPE MATCHES Release)
     endif (WIN32)
 
     if (UNIX)
-        target_link_options(Shiori_Kushami_Generator PRIVATE -no-pie)
+        target_link_options(Shiori_Kushami_Generator PRIVATE -no-pie -pthread)
+        target_compile_options(Shiori_Kushami_Generator PRIVATE -fPIC)
+        target_compile_options(MainFrame PRIVATE -fPIC)
+        target_compile_options(MainWidget PRIVATE -fPIC)
+        target_compile_options(KushamiFunc PRIVATE -fPIC)
     endif (UNIX)
 endif(CMAKE_BUILD_TYPE MATCHES Release)
 

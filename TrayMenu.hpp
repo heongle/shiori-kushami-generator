@@ -2,6 +2,7 @@
 #include <QIcon>
 #include <QSystemTrayIcon>
 #include <iostream>
+#include <functional>
 
 class TrayMenu {
   private:
