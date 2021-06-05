@@ -18,4 +18,4 @@ class RandGen {
     void initGen();
 };
 
-#endif
+#endif /* RANDGEN_H */

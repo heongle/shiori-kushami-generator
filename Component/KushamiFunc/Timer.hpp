@@ -28,4 +28,4 @@ class Timer {
     void startLoop();
 };
 
-#endif
+#endif /* TIMER_H */

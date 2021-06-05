@@ -5,7 +5,7 @@
 #include <QSystemTrayIcon>
 #include <vector>
 
-#include "CustomWidget.h"
+#include "CustomWidget.hpp"
 #include "Component/MainWidget.hpp"
 #include "TrayMenu.hpp"
 

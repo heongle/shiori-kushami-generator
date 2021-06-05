@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_C_FLAGS_RELEASE "-O2 -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
-
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(QT5 REQUIRED Qt5Widgets)
 pkg_check_modules(SFML_AUDIO REQUIRED sfml-audio)
@@ -23,7 +23,6 @@ add_library(Res OBJECT
     res/se/kushami10.cpp
     res/se/kushami11.cpp
     res/qt_resources/kushamiResQt.cpp
-    icon/shiori_icon.rc
 )
 
 add_library(MainFrame OBJECT
@@ -45,6 +44,7 @@ add_library(KushamiFunc OBJECT
 
 add_executable(Shiori_Kushami_Generator
     main.cpp
+    icon/shiori_icon.rc
     $<TARGET_OBJECTS:Res>
     $<TARGET_OBJECTS:MainFrame>
     $<TARGET_OBJECTS:MainWidget>

@@ -30,4 +30,4 @@ class MainWidget {
     void stopAll();
 };
 
-#endif
+#endif /* MAINWIDGET_H */

@@ -4,7 +4,7 @@
  * KushamiSE constructor
  */
 KushamiSE::KushamiSE() {
-    buffer = new sf::SoundBuffer[soundArraySize];
+    buffer = std::unique_ptr<sf::SoundBuffer[]>(new sf::SoundBuffer[soundArraySize]);
     for (int i = 0; i < soundArraySize; ++i) {
         if (!buffer[i].loadFromMemory(sound_pointer[i], (std::size_t)sound_length_pointer[i])) {
             std::cerr << "Error opening Shiori Stream" << std::endl;
@@ -17,7 +17,7 @@ KushamiSE::KushamiSE() {
  * Destructor. Unallocate dynamic allocated memory
  */
 KushamiSE::~KushamiSE() {
-    delete[] buffer;
+    // delete[] buffer;
     std::cout << "BUFFER CLEARED" << "\n";
 }
 

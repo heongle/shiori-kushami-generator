@@ -19,4 +19,4 @@ class StartButton {
     int getInput(QLineEdit &input, int minValue);
 };
 
-#endif
+#endif /* STARTBUTTON_H */

@@ -1,4 +1,4 @@
-#include "CustomWidget.h"
+#include "CustomWidget.hpp"
 
 /**
  * Override the hideEvent function to toggle window visible state

@@ -1,3 +1,5 @@
+#ifndef CUSTOMWIDGET_H
+#define CUSTOMWIDGET_H
 #include <QWidget>
 
 /**
@@ -7,3 +9,6 @@ class CustomWidget : public QWidget {
     public:
     void hideEvent(QHideEvent *event);
 };
+
+
+#endif /* CUSTOMWIDGET_H */
