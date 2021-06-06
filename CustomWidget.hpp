@@ -10,5 +10,4 @@ class CustomWidget : public QWidget {
     void hideEvent(QHideEvent *event);
 };
 
-
 #endif /* CUSTOMWIDGET_H */
